@@ -1,0 +1,48 @@
+    1  cd lab0
+    2  md hello
+    3  makedir hello
+    4  mkdir hello
+    5  cd hello
+    6  touch empty.txt
+    7  cd /workspace/os_lab_2019/lab0/src
+    8  cd os_lab_2019/lab0/src
+    9  /workspaces/os_lab_2019/lab0/src
+   10  cp /workspaces/os_lab_2019/lab0/src/hello.c /workspaces/os_lab_2019/lab0/hello
+   11  mv hello.c newhello.c
+   12  cd /os_lab_2019/
+   13  cd /workspaces/os_lab_2019/
+   14  ./update.sh
+   15  ping ya.ru -c 5
+   16  gid add lab0/src/hello/empty
+   17  git add lab0/src/hello/empty
+   18  git add lab0/shello/empty
+   19  git add lab0/hello/empty
+   20  git add lab0/hello/newhello.c
+   21  git status
+   22  git commit -m "added newhello.c and empty"
+   23  git push
+   24  history
+   25  history -a
+   26  cd lab1/src
+   27  ./background.sh &
+   28  touch text.txt
+   29  echo "some text" > text.txt
+   30  cat text.txt
+   31  touch with_cake.txt
+   32  grep "cake" cake_rhymes.txt > with_cake.txt
+   33  rm text.txt > /dev/null
+   34  chmod hello.sh
+   35  chmod +x hello.sh
+   36  ./hello.sh
+   37  touch current.sh
+   38  chmod +x current.sh
+   39  ./current.sh
+   40  touch avrage.sh
+   41  touch random.sh
+   42  chmod +x average.sh
+   43  chmod +x avrage.sh
+   44  chmod +x random.sh
+   45  ./random.sh
+   46  ./avrage.sh $(cat numbers.txt)
+   47  touch history.txt
+   48  history > history.txt
