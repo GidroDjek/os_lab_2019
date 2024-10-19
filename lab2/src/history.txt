@@ -1,0 +1,30 @@
+    1  cd lab2/src/swap
+    2  gcc main.c swap.c swap.h -o swap
+    3  chmod +x swap
+    4  ./swap
+    5  cd ../revert_string
+    6  gcc main.c revert_string.h revert_string.c -o revert_str
+    7  chmod +x revert_str
+    8  ./revert_str revert
+    9  mkdir static
+   10  mkdir dynamic
+   11  gcc -c main.c -o main.o
+   12  gcc -c revert_string.c -o static/revert_string.o
+   13  gcc -c -fPIC revert_string.c -o dynamic/revert_string.o
+   14  ar rcs static/librev.a static/revert_string.o
+   15  gcc main.o -Lstatic -lrev -o static static_rev_link
+   16  gcc main.o -Lstatic -lrev -o static/static_rev_link
+   17  gcc -shared dynamic/revert_string.o -o dynamic/librev.so
+   18  gcc main.o -Ldynamic -lrev -o dynamic/dynamic_rev_link
+   19  mkdir test
+   20  gcc -o test ../tests/test.c -Ldynamic -lrev
+   21  gcc -o test ../tests/tests.c -Ldynamic -lrev
+   22  gcc -o test ../tests/tests.c -lcunit
+   23  sudo apt-get install libcunit1 libcunit1-doc libcunit1-dev
+   24  gcc -o test ../tests/tests.c -lcunit
+   25  cd ../tests
+   26  sudo apt-get install libcunit1 libcunit1-doc libcunit1-dev
+   27  gcc -o tests tests.c -lcunit
+   28  cd ..
+   29  touch history.txt
+   30  history >> history.txt
