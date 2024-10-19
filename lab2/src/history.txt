@@ -28,3 +28,19 @@
    28  cd ..
    29  touch history.txt
    30  history >> history.txt
+    1  cd lab2/src/tests
+    2  gcc -o test tests.c -lcunit
+    3  cd ../..
+    4  ../update.sh
+    5  sudo apt-get install libcunit1 libcunit1-doc libcunit1-dev
+    6  cd src/revert_string/dynamic
+    7  gcc tests.c -L. -lrev  -lcunit -o test
+    8  gcc ../../tests/tests.c -L. -lrev  -lcunit -o test
+    9  gcc ../../tests/tests.c -L. -lrevert_string  -lcunit -o test
+   10  mv ../revert_string.h ../../tests
+   11  gcc ../../tests/tests.c -L. -lrev  -lcunit -o test
+   12  LD_LIBRARY_PATH=.
+   13  ./test
+   14  LD_LIBRARY_PATH=. ./test
+   15  history >> ../history.txt
+   16  history >> ../../history.txt
