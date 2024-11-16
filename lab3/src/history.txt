@@ -1,0 +1,15 @@
+    1  ./parallel_min_max --seed "11" --array_size "11" --pnum "11" --by_files
+    2  cd lab3/src
+    3  ./parallel_min_max --seed "11" --array_size "11" --pnum "11" --by_files
+    4  ./makefile
+    5  chmod +x makefile
+    6  ./makefile
+    7  gcc program.c -o program
+    8  chmod +x program
+    9  ./program
+   10  gcc gcc find_min_max.c find_min_max.h sequential_min_max.c utils.c utils.h -o sequential_min_max
+   11  gcc gind_min_max.c find_min_max.h sequential_min_max.c utils.c utils.h -o sequential_min_max
+   12  gcc find_min_max.c find_min_max.h sequential_min_max.c utils.c utils.h -o sequential_min_max
+   13  chmod +x sequential_min_max
+   14  ./program
+   15  history > history.txt

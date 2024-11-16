@@ -3,41 +3,26 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
-int main(int argc, char *argv[]) {
-    if (argc != 4) {
-        fprintf(stderr, "Usage: %s <program> <arg1> <arg2>\n", argv[0]);
-        return 1;
+int main() {
+    pid_t child_pid = fork();
+
+    if (child_pid == -1) {
+        perror("fork failed");
+        exit(EXIT_FAILURE);
     }
 
-    char *program = argv[1];
-    char *arg1 = argv[2];
-    char *arg2 = argv[3];
-
-    // Создаем массив аргументов для exec
-    char *exec_argv[3];
-    exec_argv[0] = program;
-    exec_argv[1] = arg1;
-    exec_argv[3] = arg2;
-    exec_argv[2] = NULL;
-
-    // Создаем дочерний процесс
-    pid_t pid = fork();
-    if (pid == -1) {
-        perror("fork");
-        return 1;
-    }
-
-    if (pid == 0) {
-        // Дочерний процесс
-        execvp(program, exec_argv);
-        // Если execvp вернет ошибку, завершим дочерний процесс
-        perror("execvp");
+    if (child_pid == 0) {
+        execlp("./sequential_min_max", "./sequential_min_max",  "11", "11", NULL);
+        perror("execlp failed");
         exit(EXIT_FAILURE);
     } else {
-        // Родительский процесс
         int status;
         wait(&status);
-        printf("Child process finished with status %d\n", WEXITSTATUS(status));
+        if (WIFEXITED(status)) {
+            printf("Child process exited with status %d\n", WEXITSTATUS(status));
+        } else {
+            printf("Child process did not exit normally\n");
+        }
     }
 
     return 0;
