@@ -17,5 +17,10 @@ find_min_max.o : utils.h find_min_max.h
 program: program.c
 	./program
 
+process_memory:
+	$(CC) -o process_memory process_memory.c
+zombie:
+	$(CC) -o zombie zombie.c
+
 clean :
 	rm utils.o find_min_max.o sequential_min_max parallel_min_max
