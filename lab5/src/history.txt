@@ -1,0 +1,21 @@
+    1  cd lab5/src
+    2  gcc mutex.c -o mutex_minus -lpthread
+    3  chmod +x mutex_minus
+    4  gcc mutex.c -o mutex_minus -lpthread
+    5  gcc mutex.c -o mutex_plus -lpthread
+    6  chmod +x mutex_plus
+    7  gcc mutex.c -o mutex_minus -lpthread
+    8  chmod +x mutex_minus
+    9  ./mutex_minus
+   10  ./mutex_plus
+   11  touch factorial.c
+   12  gcc factorial.c -o factorial -lpthread
+   13  chmod +x factorial
+   14  ./factorial
+   15  ./factorial -k 10 --pnum=4 --mod=10
+   16  ./factorial -k 10 --pnum=4 --mod=10000
+   17  touch deadlock.c
+   18  gcc deadlock.c -o deadlock -lpthread
+   19  chmod +x deadlock
+   20  ./deadlock
+   21  history > history.txt
