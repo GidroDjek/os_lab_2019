@@ -1,0 +1,10 @@
+    1  cd lab6/src
+    2  touch servers.txt
+    3  touch makefile
+    4  make all
+    5  ./server --port 20001 --tnum 2
+    6  ./server --port 20001 --tnum 2 &
+    7  ./server --port 20002 --tnum 2 &
+    8  ./client --k 11 --mod 10000 --servers servers.txt
+    9  touch history.txt
+   10  history > history.txt
