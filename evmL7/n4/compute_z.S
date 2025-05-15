@@ -1,14 +1,8 @@
 # Функция compute_z_avx: вычисляет z = 1 - 5/x - y²/7
-# Сигнатура: double compute_z_avx(double x, double y)
-# Использует AVX (или SSE2, если AVX недоступен)
+# Использует AVX
 
 .global compute_z_avx
 compute_z_avx:
-    # Вход:
-    #   xmm0 = x (double)
-    #   xmm1 = y (double)
-    # Выход:
-    #   xmm0 = z (результат)
 
     # Константы:
     movsd   .LC0(%rip), %xmm2    # xmm2 = 1.0

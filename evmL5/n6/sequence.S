@@ -1,10 +1,6 @@
     .text
     .globl generate_sequence
 
-# Сигнатура: void generate_sequence(int* array, unsigned int N)
-# System V AMD64 ABI:
-#   array -> %rdi (указатель на массив)
-#   N -> %esi (32-битное беззнаковое)
 
 generate_sequence:
     testl   %esi, %esi       # Проверяем N == 0

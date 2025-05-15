@@ -1,10 +1,6 @@
     .text
     .globl modify_secondary_diagonal
 
-# Сигнатура: void modify_secondary_diagonal(int* matrix, size_t N)
-# System V AMD64 ABI:
-#   matrix -> %rdi (указатель на матрицу)
-#   N -> %rsi (размер матрицы)
 
 modify_secondary_diagonal:
     testq   %rsi, %rsi
